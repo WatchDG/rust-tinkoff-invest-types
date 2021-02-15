@@ -123,6 +123,12 @@ pub struct PlacedLimitOrder {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct ErrorPayload {
+    pub code: String,
+    pub message: String,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ResponseData<P> {
     #[serde(rename(serialize = "trackingId", deserialize = "trackingId"))]
     pub tracking_id: String,

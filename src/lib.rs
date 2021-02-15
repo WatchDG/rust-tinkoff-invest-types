@@ -22,6 +22,31 @@ pub enum InstrumentType {
 }
 
 #[derive(Deserialize, Debug)]
+pub enum OperationType {
+    Buy,
+    Sell,
+}
+
+#[derive(Deserialize, Debug)]
+pub enum OrderStatus {
+    New,
+    PartiallyFill,
+    Fill,
+    Cancelled,
+    Replaced,
+    PendingCancel,
+    Rejected,
+    PendingReplace,
+    PendingNew,
+}
+
+#[derive(Deserialize, Debug)]
+pub enum OrderType {
+    Limit,
+    Market,
+}
+
+#[derive(Deserialize, Debug)]
 pub enum BrokerAccountType {
     Tinkoff,
     TinkoffIis,
@@ -65,4 +90,20 @@ pub struct TinkoffResponseData<P> {
     pub tracking_id: String,
     pub payload: P,
     pub status: String,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct Order {
+    #[serde(rename(serialize = "orderId", deserialize = "orderId"))]
+    pub order_id: String,
+    pub figi: String,
+    pub operation: OperationType,
+    pub status: OrderStatus,
+    #[serde(rename(serialize = "requestedLots", deserialize = "requestedLots"))]
+    pub requested_lots: u64,
+    #[serde(rename(serialize = "executedLots", deserialize = "executedLots"))]
+    pub executed_lots: u64,
+    #[serde(rename(serialize = "type", deserialize = "type"))]
+    pub type_: OrderType,
+    pub price: f64,
 }

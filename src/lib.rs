@@ -53,20 +53,26 @@ pub enum BrokerAccountType {
 }
 
 #[derive(Deserialize, Debug)]
-pub struct TinkoffUserAccount {
+pub struct MoneyAmount {
+    pub currency: Currency,
+    pub value: f64,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct UserAccount {
     #[serde(rename(serialize = "brokerAccountId", deserialize = "brokerAccountId"))]
     pub broker_account_id: String,
     #[serde(rename(serialize = "brokerAccountType", deserialize = "brokerAccountType"))]
-    pub broker_account_type: String,
+    pub broker_account_type: BrokerAccountType,
 }
 
 #[derive(Deserialize, Debug)]
-pub struct TinkoffUserAccounts {
-    pub accounts: Vec<TinkoffUserAccount>,
+pub struct UserAccounts {
+    pub accounts: Vec<UserAccount>,
 }
 
 #[derive(Deserialize, Debug)]
-pub struct TinkoffMarketInstrument {
+pub struct MarketInstrument {
     pub figi: String,
     pub ticker: String,
     pub name: String,
@@ -80,16 +86,8 @@ pub struct TinkoffMarketInstrument {
 }
 
 #[derive(Deserialize, Debug)]
-pub struct TinkoffMarketInstruments {
-    pub instruments: Vec<TinkoffMarketInstrument>,
-}
-
-#[derive(Deserialize, Debug)]
-pub struct TinkoffResponseData<P> {
-    #[serde(rename(serialize = "trackingId", deserialize = "trackingId"))]
-    pub tracking_id: String,
-    pub payload: P,
-    pub status: String,
+pub struct MarketInstruments {
+    pub instruments: Vec<MarketInstrument>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -106,4 +104,27 @@ pub struct Order {
     #[serde(rename(serialize = "type", deserialize = "type"))]
     pub type_: OrderType,
     pub price: f64,
+}
+
+pub struct PlacedLimitOrder {
+    #[serde(rename(serialize = "orderId", deserialize = "orderId"))]
+    pub order_id: String,
+    pub operation: OperationType,
+    pub status: OrderStatus,
+    #[serde(rename(serialize = "rejectReason", deserialize = "rejectReason"))]
+    pub reject_reason: Option<String>,
+    pub message: Option<String>,
+    #[serde(rename(serialize = "requestedLots", deserialize = "requestedLots"))]
+    pub requested_lots: u64,
+    #[serde(rename(serialize = "executedLots", deserialize = "executedLots"))]
+    pub executed_lots: u64,
+    pub commission: Option<MoneyAmount>,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct ResponseData<P> {
+    #[serde(rename(serialize = "trackingId", deserialize = "trackingId"))]
+    pub tracking_id: String,
+    pub payload: P,
+    pub status: String,
 }

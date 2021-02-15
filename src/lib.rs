@@ -106,6 +106,7 @@ pub struct Order {
     pub price: f64,
 }
 
+#[derive(Deserialize, Debug)]
 pub struct PlacedLimitOrder {
     #[serde(rename(serialize = "orderId", deserialize = "orderId"))]
     pub order_id: String,

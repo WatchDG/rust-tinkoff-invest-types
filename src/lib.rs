@@ -107,7 +107,7 @@ pub struct Order {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct PlacedLimitOrder {
+pub struct PlacedOrder {
     #[serde(rename(serialize = "orderId", deserialize = "orderId"))]
     pub order_id: String,
     pub operation: OperationType,

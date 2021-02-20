@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-use std::fmt;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum Currency {
@@ -142,7 +141,7 @@ pub struct PortfolioPosition {
     pub figi: String,
     pub ticker: Option<String>,
     pub isin: Option<String>,
-    #[serde(rename(serialize = "InstrumentType", deserialize = "InstrumentType"))]
+    #[serde(rename(serialize = "instrumentType", deserialize = "instrumentType"))]
     pub instrument_type: Option<InstrumentType>,
     pub balance: f64,
     pub blocked: Option<f64>,

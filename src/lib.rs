@@ -238,3 +238,8 @@ pub struct Operation {
     #[serde(rename(serialize = "operationType", deserialize = "operationType"))]
     pub operation_type: Option<OperationTypeWithCommission>,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct OperationsPayload {
+    pub operations: Vec<Operation>,
+}

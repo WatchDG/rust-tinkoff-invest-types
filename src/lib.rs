@@ -142,7 +142,7 @@ pub struct PortfolioPosition {
     pub ticker: Option<String>,
     pub isin: Option<String>,
     #[serde(rename(serialize = "instrumentType", deserialize = "instrumentType"))]
-    pub instrument_type: Option<InstrumentType>,
+    pub instrument_type: InstrumentType,
     pub balance: f64,
     pub blocked: Option<f64>,
     #[serde(rename(serialize = "expectedYield", deserialize = "expectedYield"))]

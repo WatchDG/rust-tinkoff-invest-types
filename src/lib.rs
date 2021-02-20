@@ -177,3 +177,64 @@ pub struct CurrencyPortfolioPosition {
 pub struct CurrencyPortfolioPayload {
     pub currencies: Vec<CurrencyPortfolioPosition>,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub enum OperationTypeWithCommission {
+    Buy,
+    BuyCard,
+    Sell,
+    BrokerCommission,
+    ExchangeCommission,
+    ServiceCommission,
+    MarginCommission,
+    OtherCommission,
+    PayIn,
+    PayOut,
+    Tax,
+    TaxLucre,
+    TaxDividend,
+    TaxCoupon,
+    TaxBack,
+    Repayment,
+    PartRepayment,
+    Coupon,
+    Dividend,
+    SecurityIn,
+    SecurityOut,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub enum OperationStatus {
+    Done,
+    Decline,
+    Progress,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct OperationTrade {
+    #[serde(rename(serialize = "tradeId", deserialize = "tradeId"))]
+    pub trade_id: String,
+    pub date: String,
+    pub price: f64,
+    pub quantity: u64,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Operation {
+    pub id: String,
+    pub status: OperationStatus,
+    pub trades: Option<Vec<OperationTrade>>,
+    pub commission: Option<MoneyAmount>,
+    pub currency: Currency,
+    pub payment: f64,
+    pub price: Option<f64>,
+    pub quantity: Option<u64>,
+    pub figi: Option<String>,
+    #[serde(rename(serialize = "instrumentType", deserialize = "instrumentType"))]
+    pub instrument_type: Option<InstrumentType>,
+    #[serde(rename(serialize = "isMarginCall", deserialize = "isMarginCall"))]
+    pub is_margin_call: bool,
+    pub date: String,
+    #[serde(rename(serialize = "operationType", deserialize = "operationType"))]
+    pub operation_type: Option<OperationTypeWithCommission>,
+}

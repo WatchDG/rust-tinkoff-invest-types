@@ -243,3 +243,54 @@ pub struct Operation {
 pub struct OperationsPayload {
     pub operations: Vec<Operation>,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub enum CandlestickResolution {
+    #[serde(rename(serialize = "1min", deserialize = "1min"))]
+    MIN1,
+    #[serde(rename(serialize = "2min", deserialize = "2min"))]
+    MIN2,
+    #[serde(rename(serialize = "3min", deserialize = "3min"))]
+    MIN3,
+    #[serde(rename(serialize = "5min", deserialize = "5min"))]
+    MIN5,
+    #[serde(rename(serialize = "10min", deserialize = "10min"))]
+    MIN10,
+    #[serde(rename(serialize = "15min", deserialize = "15min"))]
+    MIN15,
+    #[serde(rename(serialize = "30min", deserialize = "30min"))]
+    MIN30,
+    #[serde(rename(serialize = "hour", deserialize = "hour"))]
+    HOUR,
+    #[serde(rename(serialize = "day", deserialize = "day"))]
+    DAY,
+    #[serde(rename(serialize = "week", deserialize = "week"))]
+    WEEK,
+    #[serde(rename(serialize = "month", deserialize = "month"))]
+    MONTH,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Candlestick {
+    pub figi: String,
+    pub interval: CandlestickResolution,
+    #[serde(rename(serialize = "time", deserialize = "time"))]
+    pub datetime: String,
+    #[serde(rename(serialize = "o", deserialize = "o"))]
+    pub open: f64,
+    #[serde(rename(serialize = "c", deserialize = "c"))]
+    pub close: f64,
+    #[serde(rename(serialize = "h", deserialize = "h"))]
+    pub high: f64,
+    #[serde(rename(serialize = "l", deserialize = "l"))]
+    pub low: f64,
+    #[serde(rename(serialize = "v", deserialize = "v"))]
+    pub volume: u64,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct CandlesticksPayload {
+    pub figi: String,
+    pub interval: CandlestickResolution,
+    pub candles: Vec<Candlestick>,
+}

@@ -294,3 +294,37 @@ pub struct CandlesticksPayload {
     pub interval: CandlestickResolution,
     pub candles: Vec<Candlestick>,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct OrderResponse {
+    pub price: f64,
+    pub quantity: u64,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub enum TradeStatus {
+    NormalTrading,
+    NotAvailableForTrading,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Orderbook {
+    pub figi: String,
+    pub depth: u8,
+    pub bids: Vec<OrderResponse>,
+    pub asks: Vec<OrderResponse>,
+    #[serde(rename(serialize = "tradeStatus", deserialize = "tradeStatus"))]
+    pub trade_status: TradeStatus,
+    #[serde(rename(serialize = "minPriceIncrement", deserialize = "minPriceIncrement"))]
+    pub min_price_increment: f64,
+    #[serde(rename(serialize = "faceValue", deserialize = "faceValue"))]
+    pub face_value: Option<f64>,
+    #[serde(rename(serialize = "lastPrice", deserialize = "lastPrice"))]
+    pub last_price: Option<f64>,
+    #[serde(rename(serialize = "closePrice", deserialize = "closePrice"))]
+    pub close_price: Option<f64>,
+    #[serde(rename(serialize = "limitUp", deserialize = "limitUp"))]
+    pub limit_up: Option<f64>,
+    #[serde(rename(serialize = "limitDown", deserialize = "limitDown"))]
+    pub limit_down: Option<f64>,
+}

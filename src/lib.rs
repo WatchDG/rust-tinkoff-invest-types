@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use std::fmt;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum Currency {
@@ -268,6 +269,24 @@ pub enum CandlestickResolution {
     WEEK,
     #[serde(rename(serialize = "month", deserialize = "month"))]
     MONTH,
+}
+
+impl fmt::Display for CandlestickResolution {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            CandlestickResolution::MIN1 => write!(f, "1min"),
+            CandlestickResolution::MIN2 => write!(f, "2min"),
+            CandlestickResolution::MIN3 => write!(f, "3min"),
+            CandlestickResolution::MIN5 => write!(f, "5min"),
+            CandlestickResolution::MIN10 => write!(f, "10min"),
+            CandlestickResolution::MIN15 => write!(f, "15min"),
+            CandlestickResolution::MIN30 => write!(f, "30min"),
+            CandlestickResolution::HOUR => write!(f, "hour"),
+            CandlestickResolution::DAY => write!(f, "day"),
+            CandlestickResolution::WEEK => write!(f, "week"),
+            CandlestickResolution::MONTH => write!(f, "month"),
+        }
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]

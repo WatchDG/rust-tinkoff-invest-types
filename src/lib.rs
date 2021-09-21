@@ -14,6 +14,22 @@ pub enum Currency {
     TRY,
 }
 
+impl From<Currency> for String {
+    fn from(currency: Currency) -> String {
+        match currency {
+            Currency::RUB => "RUB".into(),
+            Currency::USD => "USD".into(),
+            Currency::EUR => "EUR".into(),
+            Currency::GBP => "GBP".into(),
+            Currency::HKD => "HKD".into(),
+            Currency::CHF => "CHF".into(),
+            Currency::JPY => "JPY".into(),
+            Currency::CNY => "CNY".into(),
+            Currency::TRY => "TRY".into(),
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum InstrumentType {
     Stock,

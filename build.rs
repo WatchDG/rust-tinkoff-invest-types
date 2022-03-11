@@ -1,6 +1,5 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     tonic_build::configure()
-        .out_dir("src")
         .build_server(false)
         .format(true)
         .compile(
@@ -17,12 +16,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             &["contracts-repo/src/docs/contracts"],
         )
         .unwrap();
-
-    std::fs::rename(
-        "src/tinkoff.public.invest.api.contract.v1.rs",
-        "src/contracts.rs",
-    )
-    .unwrap();
 
     Ok(())
 }

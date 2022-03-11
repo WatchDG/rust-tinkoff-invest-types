@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "0.16.0"
+version = "2.0.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -11,4 +11,9 @@ readme = "README.md"
 edition = "2018"
 
 [dependencies]
-serde = { version = "1", features = ["derive"] }
+tonic = { version = "0.6.2" }
+prost = { version = "0.9.0" }
+prost-types = { version = "0.9.0" }
+
+[build-dependencies]
+tonic-build = { version = "0.6.2", features = ["rustfmt"] }

@@ -1,0 +1,3 @@
+[submodule "contracts-repo"]
+	path = contracts-repo
+	url = https://github.com/Tinkoff/investAPI.git

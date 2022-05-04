@@ -1,5 +1,3 @@
-tonic::include_proto!("tinkoff.public.invest.api.contract.v1");
+pub use prost_types;
 
-pub mod extra {
-    pub use prost_types::Timestamp;
-}
+tonic::include_proto!("tinkoff.public.invest.api.contract.v1");

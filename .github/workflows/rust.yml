@@ -20,6 +20,6 @@ jobs:
     - name: Install protoc
       run: sudo apt-get install -y protobuf-compiler
     - name: Build
-      run: cargo build --verbose --release
+      run: cargo build --verbose
     - name: Docs
-      run: cargo doc --verbose --release
+      run: cargo doc --verbose

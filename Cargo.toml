@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.12.0"
+version = "2.13.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -8,7 +8,7 @@ homepage = "https://github.com/WatchDG/rust-tinkoff-invest-types"
 documentation = "https://docs.rs/tinkoff-invest-types"
 repository = "https://github.com/WatchDG/rust-tinkoff-invest-types"
 readme = "README.md"
-edition = "2018"
+edition = "2021"
 exclude = [
     "/contracts-repo",
     "!/contracts-repo/src/docs/contracts",
@@ -17,9 +17,9 @@ exclude = [
 ]
 
 [dependencies]
-tonic = { version = "0.8" }
+tonic = { version = "0.9" }
 prost = { version = "0.11" }
 prost-types = { version = "0.11" }
 
 [build-dependencies]
-tonic-build = { version = "0.8" }
+tonic-build = { version = "0.9" }

@@ -15,6 +15,5 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             &["contracts-repo/src/docs/contracts"],
         )
         .unwrap();
-
     Ok(())
 }

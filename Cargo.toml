@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.14.1"
+version = "2.15.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -11,6 +11,7 @@ readme = "README.md"
 edition = "2021"
 exclude = [
     ".github",
+    ".vs",
     "/contracts-repo",
     "!/contracts-repo/src/docs/contracts",
     ".gitignore",
@@ -18,9 +19,9 @@ exclude = [
 ]
 
 [dependencies]
-tonic = { version = "0.10" }
+tonic = { version = "0.11" }
 prost = { version = "0.12" }
 prost-types = { version = "0.12" }
 
 [build-dependencies]
-tonic-build = { version = "0.10" }
+tonic-build = { version = "0.11" }

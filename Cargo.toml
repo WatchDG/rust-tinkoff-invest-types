@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.18.0"
+version = "2.19.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -19,9 +19,9 @@ exclude = [
 ]
 
 [dependencies]
-tonic = { version = "0.11" }
-prost = { version = "0.12" }
-prost-types = { version = "0.12" }
+tonic = { version = "0.12" }
+prost = { version = "0.13" }
+prost-types = { version = "0.13" }
 
 [build-dependencies]
-tonic-build = { version = "0.11" }
+tonic-build = { version = "0.12" }

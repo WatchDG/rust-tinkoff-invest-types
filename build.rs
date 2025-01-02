@@ -10,6 +10,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "contracts-repo/src/docs/contracts/operations.proto",
                 "contracts-repo/src/docs/contracts/orders.proto",
                 "contracts-repo/src/docs/contracts/sandbox.proto",
+                "contracts-repo/src/docs/contracts/signals.proto",
                 "contracts-repo/src/docs/contracts/stoporders.proto",
                 "contracts-repo/src/docs/contracts/users.proto",
             ],

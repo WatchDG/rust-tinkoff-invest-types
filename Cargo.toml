@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.20.0"
+version = "2.20.1"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -8,7 +8,7 @@ homepage = "https://github.com/WatchDG/rust-tinkoff-invest-types"
 documentation = "https://docs.rs/tinkoff-invest-types"
 repository = "https://github.com/WatchDG/rust-tinkoff-invest-types"
 readme = "README.md"
-edition = "2021"
+edition = "2024"
 exclude = [
     ".github",
     ".vs",

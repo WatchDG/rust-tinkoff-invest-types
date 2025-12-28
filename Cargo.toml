@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.22.0"
+version = "2.23.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"

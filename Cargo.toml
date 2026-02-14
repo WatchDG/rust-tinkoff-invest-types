@@ -1,6 +1,6 @@
 [package]
 name = "tinkoff-invest-types"
-version = "2.23.0"
+version = "2.24.0"
 authors = ["WatchDG <baranov@w3m.co>"]
 license = "MIT OR Apache-2.0"
 description = "tinkoff invest types library"
@@ -12,8 +12,8 @@ edition = "2024"
 exclude = [
     ".github",
     ".vs",
-    "/contracts-repo",
-    "!/contracts-repo/src/docs/contracts",
+    "/invest-contracts",
+    "!/invest-contracts/src/docs/contracts",
     ".gitignore",
     ".gitmodules"
 ]

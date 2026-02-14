@@ -3,17 +3,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build_server(false)
         .compile_protos(
             &[
-                "contracts-repo/src/docs/contracts/common.proto",
-                "contracts-repo/src/docs/contracts/instruments.proto",
-                "contracts-repo/src/docs/contracts/marketdata.proto",
-                "contracts-repo/src/docs/contracts/operations.proto",
-                "contracts-repo/src/docs/contracts/orders.proto",
-                "contracts-repo/src/docs/contracts/sandbox.proto",
-                "contracts-repo/src/docs/contracts/signals.proto",
-                "contracts-repo/src/docs/contracts/stoporders.proto",
-                "contracts-repo/src/docs/contracts/users.proto",
+                "invest-contracts/src/docs/contracts/common.proto",
+                "invest-contracts/src/docs/contracts/instruments.proto",
+                "invest-contracts/src/docs/contracts/marketdata.proto",
+                "invest-contracts/src/docs/contracts/operations.proto",
+                "invest-contracts/src/docs/contracts/orders.proto",
+                "invest-contracts/src/docs/contracts/sandbox.proto",
+                "invest-contracts/src/docs/contracts/signals.proto",
+                "invest-contracts/src/docs/contracts/stoporders.proto",
+                "invest-contracts/src/docs/contracts/users.proto",
             ],
-            &["contracts-repo/src/docs/contracts"],
+            &["invest-contracts/src/docs/contracts"],
         )?;
     Ok(())
 }

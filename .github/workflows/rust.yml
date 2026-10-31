@@ -14,10 +14,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository and submodules
+    - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
+    - name: Checkout invest-contracts
+      run: |
+        git config http.https://opensource.tbank.ru/.sslCAInfo "$GITHUB_WORKSPACE/certs/russian-trusted-ca.pem"
+        git submodule update --init --recursive
     - name: Install protoc
       run: sudo apt-get install -y protobuf-compiler
     - name: Cache cargo
